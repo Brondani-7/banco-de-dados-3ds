@@ -12,3 +12,19 @@ CREATE TABLE Compras (
     NomeLivro VARCHAR(255) NOT NULL,
     FOREIGN KEY (ClienteID) REFERENCES Clientes(ID)
 );
+
+ SELECT * FROM Clientes;
+
+-- Inserindo dados na tabela Clientes
+INSERT INTO Clientes (ID, nomeCliente, emailCliente) VALUES
+(1, 'Ana Silva', 'ana.silva@email.com'),
+(2, 'João Pereira', 'joao.pereira@email.com'),
+(3, 'Maria Oliveira', 'maria.oliveira@email.com');
+
+-- Inserindo dados na tabela Compras
+INSERT INTO Compras (CompraID, ClienteID, NomeLivro) VALUES
+(1, 1, 'Quarto de Despejo'),
+(2, 2, 'Dom Casmurro'),
+(3, 1, 'Memórias Póstumas de Brás Cubas'),
+(4, 3, 'Quarto de Despejo'),
+(5, 3, 'O Alquimista');
