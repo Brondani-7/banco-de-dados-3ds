@@ -39,12 +39,22 @@ produtos = [
 ]
 produtos.append(Produto(4, "Marca-texto", "Papelaria", 80, 3.75, "Stabilo"))
 produtos.append(Produto(5, "Agenda", "Papelaria", 30, 22.90, "Tilibra"))
+produtos.append(Produto(6, "Caneta Azul", "Papelaria", 60, 2.80, "BIC"))
 
 def listar_produtos_acima_de_10():
     print("\n📋 Produtos com preço acima de R$10:")
     for produto in produtos:
         if produto.preco > 10:
             print(produto)
+
+
+# Função para alterar o preço de um produto existente
+def alterar_preco(nome_produto, novo_preco):
+    for produto in produtos:
+        if produto.nome == nome_produto:
+            produto.preco = novo_preco
+            return f"✅ Preço do produto '{nome_produto}' atualizado para R${novo_preco:.2f}"
+    return f"❌ Produto '{nome_produto}' não encontrado."
 
 
 # 🧬 Serializa os produtos para JSON e exibe no terminal
@@ -91,9 +101,10 @@ cursor.execute("SELECT * FROM produtos")
 for row in cursor.fetchall():
     produto = Produto(*row)  # Desempacota os dados diretamente nos atributos
     print(produto)
-
+    
 # Teste da função
 listar_produtos_acima_de_10()
+print(alterar_preco("Caneta Azul", 3.00))
 
 # 🔒 Encerra a conexão com o banco
 conn.close()
