@@ -37,6 +37,8 @@ produtos = [
     Produto(2, "Caderno", "Papelaria", 50, 15.90, "Faber"),
     Produto(3, "Borracha", "Papelaria", 200, 1.20, "Mercur")
 ]
+produtos.append(Produto(4, "Marca-texto", "Papelaria", 80, 3.75, "Stabilo"))
+produtos.append(Produto(5, "Agenda", "Papelaria", 30, 22.90, "Tilibra"))
 
 # 🧬 Serializa os produtos para JSON e exibe no terminal
 json_produtos = json.dumps([p.to_dict() for p in produtos], indent=4)
